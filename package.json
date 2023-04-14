@@ -1,33 +1,36 @@
 {
-  "name": "inditex-test",
-  "version": "1.0.1",
-  "description": "Technical test Frontend for Inditex",
-  "author": "Juan del Valle",
-  "source": "src/index.html",
-  "scripts": {
-    "dev": "parcel",
-    "build": "parcel build",
-    "start": "http-server -p 8080 dist",
-    "lint": "eslint --ext .js,.ts,.tsx .",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
-  },
-  "dependencies": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "devDependencies": {
-    "@parcel/transformer-sass": "2.8.3",
-    "@types/react": "18.0.35",
-    "@types/react-dom": "18.0.11",
-    "@typescript-eslint/eslint-plugin": "^5.58.0",
-    "@typescript-eslint/parser": "^5.58.0",
-    "eslint": "^8.38.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-react": "^7.32.2",
-    "http-server": "14.1.1",
-    "parcel": "2.8.3",
-    "prettier": "^2.8.7",
-    "process": "0.11.10",
-    "typescript": "^5.0.4"
-  }
+    "name": "inditex-test",
+    "version": "1.0.1",
+    "description": "Technical test Frontend for Inditex",
+    "author": "Juan del Valle",
+    "source": "src/public/index.html",
+    "scripts": {
+        "dev": "parcel",
+        "build": "parcel build",
+        "start": "http-server -p 8080 dist",
+        "lint": "eslint --ext .js,.ts,.tsx .",
+        "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|tsx|json)\""
+    },
+    "dependencies": {
+        "react": "18.2.0",
+        "react-dom": "18.2.0"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "devDependencies": {
+        "@parcel/transformer-sass": "2.8.3",
+        "@types/react": "18.0.35",
+        "@types/react-dom": "18.0.11",
+        "@typescript-eslint/eslint-plugin": "5.58.0",
+        "@typescript-eslint/parser": "5.58.0",
+        "eslint": "8.38.0",
+        "eslint-config-prettier": "8.8.0",
+        "eslint-plugin-react": "7.32.2",
+        "http-server": "14.1.1",
+        "parcel": "2.8.3",
+        "prettier": "2.8.7",
+        "process": "0.11.10",
+        "typescript": "5.0.4"
+    }
 }
