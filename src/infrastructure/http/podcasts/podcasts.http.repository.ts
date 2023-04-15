@@ -12,7 +12,6 @@ export class HttpPodcastsRepository implements Repository<Podcast> {
   }
 
   async fetchPodcasts(): Promise<Podcast[]> {
-    debugger;
     const res = [];
     try {
       const response = await this.httpService.get<FetchPodcastsResponse>(

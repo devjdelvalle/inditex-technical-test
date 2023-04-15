@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { MainState } from "../index";
 
-type UiState = {
+export type UiState = {
   loading: boolean;
   filters: string;
 };
