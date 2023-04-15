@@ -1,8 +1,7 @@
 {
     "include": ["src/**/*"],
     "compilerOptions": {
-        "isolatedModules": true,
-        "jsx": "react",
-        "allowSyntheticDefaultImports": true
+        "jsx": "react-jsx",
+        "allowSyntheticDefaultImports": true,
     }
 }
