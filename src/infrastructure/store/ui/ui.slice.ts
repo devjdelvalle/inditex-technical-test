@@ -1,25 +1,27 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { MainState } from "../index";
 
 export type UiState = {
   loading: boolean;
-  filters: string;
+  filter: string;
 };
 
 const initialState: UiState = {
   loading: false,
-  filters: "",
+  filter: "",
 };
 
 const uiSlice = createSlice({
   name: "ui",
   initialState: initialState,
   reducers: {
-    setFilters: (state, action: PayloadAction<string>) => {
-      state.filters = action.payload;
+    setFilter: (state, action: PayloadAction<string>) => {
+      state.filter = action.payload;
+    },
+    setLoading: (state, action: PayloadAction<boolean>) => {
+      state.loading = action.payload;
     },
   },
 });
 
-export const { setFilters } = uiSlice.actions;
+export const { setFilter, setLoading } = uiSlice.actions;
 export default uiSlice.reducer;

@@ -1,18 +1,18 @@
 import reducer, {
-  setFilters,
+  setFilter,
   UiState,
 } from "../../../../../infrastructure/store/ui/ui.slice";
 
 describe("ui Slice", () => {
   const previousState: UiState = {
     loading: false,
-    filters: "",
+    filter: "",
   };
 
   it("setFilters", async () => {
-    expect(reducer(previousState, setFilters("test"))).toEqual({
+    expect(reducer(previousState, setFilter("test"))).toEqual({
       ...previousState,
-      filters: "test",
+      filter: "test",
     });
   });
 });

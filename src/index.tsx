@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { createRoot } from "react-dom/client";
 import { App } from "./infrastructure/app/app";
 import { persistor, store } from "./infrastructure/store";

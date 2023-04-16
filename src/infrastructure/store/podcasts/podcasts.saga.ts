@@ -8,6 +8,7 @@ import {
 import { Podcast } from "../../../domain/models/podcast";
 import { HttpPodcastsRepository } from "../../http/podcasts/podcasts.http.repository";
 import { getLastUpdated } from "./podcasts.selectors";
+import { setLoading } from "../ui/ui.slice";
 
 //const ONE_DAY = 1000 * 60 * 60 * 24;
 const ONE_DAY = 1000 * 60;
@@ -22,6 +23,7 @@ export function* _fetchPodcasts() {
   }
 
   try {
+    yield put(setLoading(true));
     yield put(setIsFetching(true));
     const podcasts: Podcast[] = yield call(
       httpPodcastsRepository.fetchPodcasts.bind(httpPodcastsRepository)
@@ -30,6 +32,7 @@ export function* _fetchPodcasts() {
     yield put(setEntries(podcasts));
     yield put(setLastUpdate(Date.now()));
     yield put(setIsFetching(false));
+    yield put(setLoading(false));
   } catch (err) {
     // TODO: Launch an action to indicate the error
     //yield put(errorFetchingPodcasts());

@@ -1,10 +1,10 @@
 export class Podcast {
   constructor(
-    private readonly id: string,
-    private readonly title: string,
-    private readonly author: string,
-    private readonly image: string,
-    private readonly description: string,
-    private readonly link: string
+    readonly id: string,
+    readonly title: string,
+    readonly author: string,
+    readonly image: string,
+    readonly description: string,
+    readonly link: string
   ) {}
 }

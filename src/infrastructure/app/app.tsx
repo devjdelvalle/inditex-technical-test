@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { fetchPodcasts } from "../store/podcasts/podcasts.slice";
+import Router from "./router";
 
 export function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchPodcasts());
-  }, []);
-  return <h1>Hello World!</h1>;
+  return (
+    <div data-testid="app">
+      <Router />
+    </div>
+  );
 }
