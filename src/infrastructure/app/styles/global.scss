@@ -1,6 +1,15 @@
 @import "reset";
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
+  font-size: 1.2rem;
   color: #666;
+}
+
+.main-index {
+  width: 100%;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
 }

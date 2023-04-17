@@ -1,12 +1,11 @@
-import { Link, useNavigation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./header.module.scss";
 import LoadingIndicator from "./loadingIndicator";
 import { getIsLoading } from "../../store/ui/ui.selectors";
 import { useSelector } from "react-redux";
 
-const Header = () => {
-  const navigation = useNavigation();
-  const loading = navigation.state === "loading" || useSelector(getIsLoading);
+const Header = ({ isLoading = false }: any) => {
+  const loading = isLoading || useSelector(getIsLoading);
 
   return (
     <div data-testid="header" className={styles.header}>
