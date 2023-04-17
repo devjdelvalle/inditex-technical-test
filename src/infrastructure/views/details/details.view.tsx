@@ -17,39 +17,42 @@ export const DetailsView = () => {
     dispatch(fetchPodcast(podcastId));
   }, [podcastId]);
 
-  if (!podcast)
-    return <div data-testid="details-view" className={styles.container}></div>;
-
   return (
     <div data-testid="details-view" className={styles.container}>
-      <div className={styles.sidebar}>
-        <PodcastInfo podcast={podcast}></PodcastInfo>
-      </div>
-      <div className={styles.content}>
-        <Panel>
-          <p>Episodes: {podcast.episodes.length}</p>
-        </Panel>
-        <Panel>
-          <ul>
-            <li className={styles.tableheader}>
-              <p>Título</p>
-              <div className={styles.metadata}>
-                <p>Fecha</p>
-                <p>Duración</p>
-              </div>
-            </li>
-            {podcast.episodes.map((episode) => (
-              <li key={episode.id}>
-                <Link to="#">{episode.title}</Link>
-                <div className={styles.metadata}>
-                  <p>{episode.shortDate}</p>
-                  <p>{episode.durationInMinutes}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </Panel>
-      </div>
+      {podcast && (
+        <>
+          <div className={styles.sidebar}>
+            <PodcastInfo podcast={podcast}></PodcastInfo>
+          </div>
+          <div className={styles.content}>
+            <Panel>
+              <p>Episodes: {podcast.episodes.length}</p>
+            </Panel>
+            <Panel>
+              <ul>
+                <li className={styles.tableheader}>
+                  <p>Título</p>
+                  <div className={styles.metadata}>
+                    <p>Fecha</p>
+                    <p>Duración</p>
+                  </div>
+                </li>
+                {podcast.episodes.map((episode) => (
+                  <li key={episode.id}>
+                    <Link to={`/podcast/${podcastId}/episode/${episode.id}`}>
+                      {episode.title}
+                    </Link>
+                    <div className={styles.metadata}>
+                      <p>{episode.shortDate}</p>
+                      <p>{episode.durationInMinutes}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </Panel>
+          </div>
+        </>
+      )}
     </div>
   );
 };

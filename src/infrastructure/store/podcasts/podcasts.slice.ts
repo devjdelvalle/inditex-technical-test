@@ -19,19 +19,19 @@ const podcastsSlice = createSlice({
   initialState: initialState,
   reducers: {
     setLastUpdate: (state, action: PayloadAction<number>) => {
-      state = Object.assign({}, state, { lastUpdated: action.payload });
+      state.lastUpdated = action.payload;
     },
     setEntries: (state, action: PayloadAction<Podcast[]>) => {
-      state = Object.assign({}, state, { entries: action.payload });
+      state.entries = [...action.payload];
     },
     setIsFetching: (state, action: PayloadAction<boolean>) => {
-      state = Object.assign({}, state, { isFetching: action.payload });
+      state.isFetching = action.payload;
     },
     fetchPodcasts: (state) => {
-      state = Object.assign({}, state, { isFetching: true });
+      state.isFetching = true;
     },
     fetchPodcast: (state, action: PayloadAction<string>) => {
-      state = Object.assign({}, state, { isFetching: true });
+      state.isFetching = true;
     },
     setPodcastDetails: (state, action: PayloadAction<Podcast>) => {
       const newState = Object.assign({}, state);

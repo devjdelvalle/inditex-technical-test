@@ -62,7 +62,7 @@ export class HttpPodcastsRepository implements Repository {
               episode.trackName,
               episode.releaseDate,
               episode.trackTimeMillis,
-              episode.feedUrl
+              episode.episodeUrl
             )
           );
         }

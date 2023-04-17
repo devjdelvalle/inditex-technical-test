@@ -68,7 +68,7 @@ const podcasts: PodcastDTO[] = [
         artist: "Artist 1",
         date: "2021-01-01",
         duration: 1000,
-        link: "https://www.google.com",
+        link: "",
       },
     ],
     lastUpdated: 0,
