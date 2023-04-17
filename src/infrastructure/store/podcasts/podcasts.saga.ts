@@ -13,8 +13,7 @@ import { getLastUpdated, getPodcast } from "./podcasts.selectors";
 import { setLoading } from "../ui/ui.slice";
 import { Episode } from "../../../domain/models/episode";
 
-//const ONE_DAY = 1000 * 60 * 60 * 24;
-const ONE_DAY = 1000 * 60;
+const ONE_DAY = 1000 * 60 * 60 * 24;
 
 export function* _fetchPodcasts() {
   const httpPodcastsRepository = new HttpPodcastsRepository();
