@@ -9,7 +9,7 @@ import uiReducer from "../infrastructure/store/ui/ui.slice";
 import podcastsReducer from "../infrastructure/store/podcasts/podcasts.slice";
 
 import type { AppStore, MainState } from "../infrastructure/store";
-import { Podcast } from "../domain/models/podcast";
+import { PodcastDTO } from "../infrastructure/store/podcasts/podcast.dto";
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
   preloadedState?: PreloadedState<MainState>;
@@ -28,6 +28,7 @@ export function renderWithProviders(
     ...renderOptions
   }: ExtendedRenderOptions = {}
 ) {
+  // eslint-disable-next-line @typescript-eslint/ban-types
   function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
     return <Provider store={store}>{children}</Provider>;
   }
@@ -51,7 +52,7 @@ export function renderWithProviders(
 //   return { store, ...renderHook(hook, { wrapper: Wrapper, ...renderOptions }) };
 // }
 
-const podcasts = [
+const podcasts: PodcastDTO[] = [
   {
     id: "1",
     title: "Podcast 1",
@@ -59,10 +60,22 @@ const podcasts = [
     image: "https://picsum.photos/200/300",
     author: "Author 1",
     link: "https://www.google.com",
+    episodes: [
+      {
+        id: 1,
+        title: "Episode 1",
+        description: "Episode 1 description",
+        artist: "Artist 1",
+        date: "2021-01-01",
+        duration: 1000,
+        link: "https://www.google.com",
+      },
+    ],
+    lastUpdated: 0,
   },
 ];
 
-export const initialState = {
+export const initialState: MainState = {
   ui: {
     loading: true,
     filter: "",

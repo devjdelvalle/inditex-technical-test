@@ -1,0 +1,29 @@
+.info {
+  box-shadow: 4px 4px 10px 1px rgba(0,0,0,0.15);
+  max-width: 300px;
+
+  div {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px;
+  }
+
+  .title{
+    font-weight: bold;
+  }
+
+  .author,
+  .description{
+    font-size: 0.8em;
+    font-style: italic;
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: 1px solid #ccc;
+  }
+
+}

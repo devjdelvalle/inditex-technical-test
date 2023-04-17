@@ -1,4 +1,6 @@
-export interface Repository<Model> {
-  fetchPodcasts(): Promise<Model[]>;
-  getPodcast(id: string): Promise<Model>;
+import { Podcast } from "../models/podcast";
+
+export interface Repository {
+  fetchPodcasts(): Promise<Podcast[]>;
+  fetchPodcastEpisodes(id: string): Promise<Episode[]>;
 }

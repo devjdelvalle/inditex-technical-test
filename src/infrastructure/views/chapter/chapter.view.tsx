@@ -1,4 +1,4 @@
-export const Chapter = () => {
+export const ChapterView = () => {
   return (
     <div>
       <h1>Chapter detail</h1>
@@ -6,4 +6,4 @@ export const Chapter = () => {
   );
 };
 
-export default Chapter;
+export default ChapterView;

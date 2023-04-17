@@ -2,10 +2,12 @@ import { Repository } from "../../../domain/services/repository.interface";
 import { HttpService } from "../http.service";
 import { FetchPodcastsResponse } from "./entities/podcasts";
 import { Podcast } from "../../../domain/models/podcast";
+import { Episode } from "../../../domain/models/episode";
+import { FetchPodcastsEpisodesResponse } from "./entities/episodes";
 
-export class HttpPodcastsRepository implements Repository<Podcast> {
+export class HttpPodcastsRepository implements Repository {
   private readonly httpService: HttpService;
-  private fetchUrl = "/us/rss/toppodcasts/limit=100/genre=1310/json";
+  private fetchUrl = "/us/rss/toppodcasts/limit=100/json";
 
   constructor() {
     this.httpService = new HttpService();
@@ -41,8 +43,38 @@ export class HttpPodcastsRepository implements Repository<Podcast> {
     return res;
   }
 
-  async getPodcast(id: string): Promise<Podcast> {
-    const res = new Podcast("", "", "", "", "", "");
+  async fetchPodcastEpisodes(id: string): Promise<Episode[]> {
+    const res: Episode[] = [];
+    const url = this.getFetchPodcastUrl(id);
+    try {
+      const response =
+        await this.httpService.get<FetchPodcastsEpisodesResponse>(url);
+
+      if (response?.results) {
+        const { results } = response;
+
+        for (const episode of results) {
+          res.push(
+            new Episode(
+              episode.trackId,
+              episode.artistName,
+              episode.description,
+              episode.trackName,
+              episode.releaseDate,
+              episode.trackTimeMillis,
+              episode.feedUrl
+            )
+          );
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
     return res;
+  }
+
+  private getFetchPodcastUrl(id: string) {
+    return `/lookup?id=${id}&media=podcast&entity=podcastEpisode`;
   }
 }

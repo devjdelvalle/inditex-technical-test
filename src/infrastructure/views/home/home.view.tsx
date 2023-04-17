@@ -1,15 +1,15 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./home.module.scss";
-import { fetchPodcasts } from "../store/podcasts/podcasts.slice";
+import { fetchPodcasts } from "../../store/podcasts/podcasts.slice";
 import {
   getFilteredPodcasts,
   getPodcasts,
-} from "../store/podcasts/podcasts.selectors";
-import Cover from "../components/cover";
+} from "../../store/podcasts/podcasts.selectors";
+import Cover from "../../components/cover";
 import { FILE } from "dns";
-import Filter from "../components/filter";
-import { getFilter } from "../store/ui/ui.selectors";
+import Filter from "../../components/filter";
+import { getFilter } from "../../store/ui/ui.selectors";
 
 const Home = () => {
   const dispatch = useDispatch();
