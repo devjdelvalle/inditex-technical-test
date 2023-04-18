@@ -10,8 +10,8 @@ type PodcastsState = {
 
 const initialState: PodcastsState = {
   isFetching: false,
-  lastUpdated: 0,
-  entries: [],
+  lastUpdated: parseInt(localStorage.getItem("lastUpdated") || "0"),
+  entries: JSON.parse(localStorage.getItem("podcasts") || "[]"),
 };
 
 const podcastsSlice = createSlice({
@@ -41,7 +41,7 @@ const podcastsSlice = createSlice({
         ({ id: podcastId }) => podcastId === action.payload.id
       );
       currentPodcast.episodes = action.payload.episodes;
-      currentPodcast.lastUpdated = Date.now();
+      currentPodcast.lastUpdated = action.payload.lastUpdated;
       newState.entries = [...podcasts];
 
       state = newState;

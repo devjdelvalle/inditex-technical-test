@@ -6,11 +6,21 @@ export class HttpService {
   constructor() {
     this.client = axios.create({
       baseURL: process.env.BASE_URL || "https://itunes.apple.com",
-      timeout: 10000,
+      timeout: 60000,
     });
+
+    this.client.interceptors.request.use(
+      (config) => {
+        return config;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
-  get<T>(url: string): Promise<T> {
-    return this.client.get(url).then((response) => response.data);
+  async get<T>(url: string): Promise<T> {
+    const response = await this.client.get(url);
+    return response.data;
   }
 }
